@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="iontitle">Home</div>
+    </ion-title>
+    <div style="text-align: right">
+      <!-- <ion-button (click)="leaveCalendar()">
+        <ion-icon slot="icon-only" name="calendar-outline"></ion-icon>
+      </ion-button> -->
+    </div>
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content class="ion-content">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ng-container *ngIf=""></ng-container>
+  <div>
+  <div class="bg-content-profile">
+    <div class="divProfilePic"><img class="picture-profile-home" [lazyLoad]="myData[0]?.Picture || defaultPicture" *ngIf="picture != ''; else loading;" [debug]="true"/></div>
+    <div class="name"> {{myData[0]?.Name}}</div>
+    <div class="borderProfile"></div>
+    <div class="staffNo">{{myData[0]?.StaffNo}}</div>
+    <div class="Info2">
+      <div class="position">{{myData[0]?.Position}}</div>
+      <div *ngIf="myData[0]?.YearsOfService > 1 && myData[0]?.MonthsOfService > 1" class="yearsofservice">Years of Service : {{myData[0]?.YearsOfService}} Years {{myData[0]?.MonthsOfService}} Months</div>
+      <div *ngIf="myData[0]?.YearsOfService > 1 && myData[0]?.MonthsOfService <= 1" class="yearsofservice">Years of Service : {{myData[0]?.YearsOfService}} Years {{myData[0]?.MonthsOfService}} Month</div>
+      <div *ngIf="myData[0]?.YearsOfService <= 1 && myData[0]?.MonthsOfService > 1" class="yearsofservice">Years of Service : {{myData[0]?.YearsOfService}} Year {{myData[0]?.MonthsOfService}} Months</div>
+      <div *ngIf="myData[0]?.YearsOfService <= 1 && myData[0]?.MonthsOfService <= 1" class="yearsofservice">Years of Service : {{myData[0]?.YearsOfService}} Year {{myData[0]?.MonthsOfService}} Month</div>
+      <div class="reporting">Reporting Manager : {{myData[0]?.ReportManager}}</div>  
+    </div>
+  </div>
+
+  <div class="button-wrap">
+      <ion-grid>
+          <ion-row>
+                  <ion-col col="6" class="colBorderRight colBorderBot">
+                    <ion-card text-center padding type="submit" name="" value="leave" button type="button" (click)="leave()">
+                      <img class="icon-img" src="/assets/icon/ico-al.png"/>
+                      <div class="txtTitle">Leave</div>
+                  </ion-card>
+                  </ion-col>
+                
+          
+                  <ion-col col="6" class="colBorderBot">
+                      <ion-card text-center padding type="submit" name="" value="profile" button type="button" (click)="profile()">
+                          <img class="icon-img" src="/assets/icon/ico-profile.png"/>
+                          <div class="txtTitle">My Profile</div>
+                      </ion-card>
+                    </ion-col>   
+                </ion-row>
+
+                <ion-row>
+                    <ion-col col="6" class="colBorderRight colBorderBot">
+                        <ion-card text-center padding type="submit" name="" value="wfh" button type="button" (click)="wfh()">
+                            <img class="icon-img2" src="/assets/icon/ico-wfh2.png"/>
+                            <div class="txtTitle">Work From<br>Home</div>
+                        </ion-card>
+                      </ion-col> 
+                      
+                    <ion-col col="6" class="colBorderBot">
+                        <ion-card text-center padding type="submit" name="" value="repleave" button type="button" (click)="replacementRequest()">
+                            <img class="icon-img2" src="/assets/icon/ico-replacementleave.png"/>
+                            <div class="txtTitle">Replacement<br>Leave Request</div>
+                        </ion-card>
+                      </ion-col>   
+                </ion-row>
+
+                <ion-row>
+                  <ion-col col="6" class="colBorderRight">
+                    <ion-card text-center padding type="submit" name="" value="training" button type="button" (click)="training()">
+                      <img class="icon-img" src="/assets/icon/ico-trainingb.png"/>
+                      <div class="txtTitle">Training</div>
+                    </ion-card>
+                  </ion-col>
+        
+                  <ion-col col="6">
+                      <ion-card text-center padding type="submit" name="" value="annualleave2" button type="button" (click)="approval()">
+                        <img class="icon-img" src="/assets/icon/ico-approve.png"/>
+                        <div class="txtTitle">Approval</div>
+                      </ion-card>
+                    </ion-col>  
+              </ion-row>
+      </ion-grid>
+  </div>
+</div>
+</ion-content>
